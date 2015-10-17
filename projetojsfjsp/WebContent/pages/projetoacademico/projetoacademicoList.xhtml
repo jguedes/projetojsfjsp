@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+
+	<ui:composition template="/index.xhtml">
+		<ui:define name="conteudo">
+			<p:dataTable id="datatable" var="projeto"
+				value="#{projetoAcademicoListMB.listaProjetoAcademico}"
+				paginator="true" rows="10">
+
+				<f:facet name="header">Lista de Projetos Acadêmicos</f:facet>
+
+				<p:column headerText="Projeto Acadêmico" sortBy="#{projeto.titulo}">
+					<h:outputText value="#{projeto.titulo}" />
+				</p:column>
+				<p:column headerText="Orientador" sortBy="#{projeto.orientador}">
+					<h:outputText value="#{projeto.orientador}" />
+				</p:column>
+				<p:column headerText="Quant. Máx. Alunos">
+					<h:outputText value="#{projeto.quantMaxAluno}" />
+				</p:column>
+				<p:column>
+					<p:commandLink update=":form:opnl"
+						actionListener="#{projetoAcademicoListMB.selecionarProjeto(projeto)}">detalhar</p:commandLink>
+				</p:column>
+				<p:column>
+					<p:commandLink
+						actionListener="#{projetoAcademicoEditMB.preAlterar(projeto)}"
+						action="projetoacademicoEdit.xhtml">alterar</p:commandLink>
+				</p:column>
+				<p:column>
+					<p:commandLink update="datatable"
+						actionListener="#{projetoAcademicoListMB.excluir(projeto)}">excluir</p:commandLink>
+				</p:column>
+				<f:facet name="footer"> Quantidade de projetos cadastrados: #{projetoAcademicoListMB.listaProjetoAcademico.size()} </f:facet>
+			</p:dataTable>
+			<p:panel id="opnl"
+				header="Projeto: #{projetoAcademicoListMB.selectedProject.titulo}"
+				closable="false" style="width:500px">
+				<h:outputText
+					value="Orientador: #{projetoAcademicoListMB.selectedProject.orientador}" />
+				<br />
+				<h:outputText
+					value="Quant. máx. alunos: #{projetoAcademicoListMB.selectedProject.quantMaxAluno}" />
+			</p:panel>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

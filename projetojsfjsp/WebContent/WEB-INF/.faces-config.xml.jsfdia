@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#usuario#usuarioList.xhtml"
+  PATH="/pages/usuario/usuarioList.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#usuario#usuarioEdit.xhtml"
+  PATH="/pages/usuario/usuarioEdit.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#usuario#usuarioEdit.xhtml:0"
+   NAME="item" PATH="/pages/usuario/usuarioEdit.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="success::#pages#usuario#usuarioList.xhtml"
+    NAME="output" PATH="/pages/usuario/usuarioList.xhtml"
+    TARGET="rules:#pages#usuario#usuarioList.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#pages#projetoacademico#projetoacademicoEdit.xhtml"
+  PATH="/pages/projetoacademico/projetoacademicoEdit.xhtml"
+  SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#pages#projetoacademico#projetoacademicoEdit.xhtml:0"
+   NAME="item" PATH="/pages/projetoacademico/projetoacademicoEdit.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success::#pages#projetoacademico#projetoacademicoList.xhtml"
+    NAME="output"
+    PATH="/pages/projetoacademico/projetoacademicoList.xhtml"
+    TARGET="rules:#pages#projetoacademico#projetoacademicoList.xhtml"
+    TITLE="success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#pages#projetoacademico#projetoacademicoList.xhtml"
+  PATH="/pages/projetoacademico/projetoacademicoList.xhtml"
+  SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#aluno#alunoEdit.xhtml"
+  PATH="/pages/aluno/alunoEdit.xhtml" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#aluno#alunoEdit.xhtml:0" NAME="item"
+   PATH="/pages/aluno/alunoEdit.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="success::#pages#aluno#alunoList.xhtml"
+    NAME="output" PATH="/pages/aluno/alunoList.xhtml"
+    TARGET="rules:#pages#aluno#alunoList.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#aluno#alunoList.xhtml"
+  PATH="/pages/aluno/alunoList.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

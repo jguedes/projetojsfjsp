@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+
+	<ui:composition template="/index.xhtml">
+		<ui:define name="conteudo">
+			<p:panelGrid style="float:left;" columns="1" styleClass="width600px">
+				<h:inputHidden value="#{projetoAcademicoEditMB.projetoAcademico.id}" />
+
+				<p:inputText id="titulo" required="true" label="Título"
+					value="#{projetoAcademicoEditMB.projetoAcademico.titulo}"
+					styleClass="width500px" maxlength="30" />
+
+				<p:inputText placeholder="Orientador" label="Orientador"
+					value="#{projetoAcademicoEditMB.projetoAcademico.orientador}"
+					styleClass="width500px" maxlength="30" />
+
+				<p:outputLabel value="Quant. máx. de alunos: ">
+					<p:keyboard
+						title="Informe a quantidade máxima de alunos que podem participar do projeto."
+						maxlength="3" placeholder="Quant. máx. de alunos" id="buttonmode"
+						value="#{projetoAcademicoEditMB.projetoAcademico.quantMaxAluno}"
+						showMode="button" keypadOnly="true" backspaceLabel="del"
+						clearLabel="limpa" closeLabel="sair" size="5" />
+				</p:outputLabel>
+
+				<p:growl id="message" showDetail="true" />
+
+				<p:commandButton value="Salvar"
+					action="#{projetoAcademicoEditMB.salvar()}">
+					<p:confirm header="Confirmação"
+						message="Inserir Projeto Acadêmcico" icon="ui-icon-alert" />
+				</p:commandButton>
+
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:panelGrid>
+			<p:pickList value="#{projetoAcademicoEditMB.potenciaisAlunos()}"
+				var="aluno" itemLabel="#{aluno}" itemValue="#{aluno}"></p:pickList>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
